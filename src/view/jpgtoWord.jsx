@@ -1,12 +1,12 @@
 import React from "react";
-import Wrapper2 from "@/components/wrapper/wrapper2";
+import Wrapper from "@/components/wrapper/wrapper2";
 import { cards2, blogs2, faqData2 } from "../data/data";
 import { Link } from "react-router-dom";
 
 const jpgtoWord = () => {
   return (
     <>
-      <Wrapper2  />
+      <Wrapper/>
 
       <section className="py-10 bg-gray-100">
         <div className="container mx-auto px-4">

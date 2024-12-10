@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
 export const cards = [
-  { name: "Jpg To Word", image: "./assets/icons/album.png", to: "/jpg-to-word" },
+  {
+    name: "Jpg To Word",
+    image: "./assets/icons/album.png",
+    to: "/jpg-to-word",
+  },
   {
     name: "Pdf To Text",
     image: "./assets/icons/pdf-file.png",
@@ -17,7 +21,7 @@ export const cards = [
     image: "./assets/icons/pdf-file.png",
     to: "/text-to-pdf",
   },
-  { name: "Text To Word", image: "./assets/icons/word.png", to: "/TextToWord" },
+  { name: "Text To Word", image: "./assets/icons/word.png", to: "/text-to-word" },
   {
     name: "Invert Image",
     image: "./assets/icons/album.png",
@@ -44,7 +48,11 @@ export const cards = [
     to: "/qr-code-scanner",
   },
   { name: "Word To Pdf", image: "./assets/icons/word.png", to: "/word-to-pdf" },
-  { name: "Pdf To Jpg", image: "./assets/icons/pdf-file.png", to: "/pdf-to-jpg" },
+  {
+    name: "Pdf To Jpg",
+    image: "./assets/icons/pdf-file.png",
+    to: "/pdf-to-jpg",
+  },
 ];
 
 export const cards2 = [
@@ -64,7 +72,7 @@ export const cards2 = [
     image: "./assets/icons/pdf-file.png",
     to: "/text-to-pdf",
   },
-  { name: "Text To Word", image: "./assets/icons/word.png", to: "/TextToWord" },
+  { name: "Text To Word", image: "./assets/icons/word.png", to: "/text-to-word" },
   {
     name: "Invert Image",
     image: "./assets/icons/album.png",
@@ -91,7 +99,62 @@ export const cards2 = [
     to: "/qr-code-scanner",
   },
   { name: "Word To Pdf", image: "./assets/icons/word.png", to: "/word-to-pdf" },
-  { name: "Pdf To Jpg", image: "./assets/icons/pdf-file.png", to: "/pdf-to-jpg" },
+  {
+    name: "Pdf To Jpg",
+    image: "./assets/icons/pdf-file.png",
+    to: "/pdf-to-jpg",
+  },
+];
+
+export const cards3 = [
+  { name: "Image To Text", image: "./assets/icons/album.png", to: "/" },
+  {
+    name: "Jpg To Word",
+    image: "./assets/icons/album.png",
+    to: "/jpg-to-word",
+  },
+  {
+    name: "Pdf To Word",
+    image: "./assets/icons/documents.png",
+    to: "/pdf-to-word",
+  },
+  {
+    name: "Text To Pdf",
+    image: "./assets/icons/pdf-file.png",
+    to: "/text-to-pdf",
+  },
+  { name: "Text To Word", image: "./assets/icons/word.png", to: "/text-to-word" },
+  {
+    name: "Invert Image",
+    image: "./assets/icons/album.png",
+    to: "/invert-image",
+  },
+  {
+    name: "Text To Image",
+    image: "./assets/icons/album.png",
+    to: "/text-to-image",
+  },
+  {
+    name: "Image To Pdf",
+    image: "./assets/icons/pdf-file.png",
+    to: "/image-to-pdf",
+  },
+  {
+    name: "Image Translator",
+    image: "./assets/icons/album.png",
+    to: "/image-translator",
+  },
+  {
+    name: "Qr Code Scanner",
+    image: "./assets/icons/qr-code.png",
+    to: "/qr-code-scanner",
+  },
+  { name: "Word To Pdf", image: "./assets/icons/word.png", to: "/word-to-pdf" },
+  {
+    name: "Pdf To Jpg",
+    image: "./assets/icons/pdf-file.png",
+    to: "/pdf-to-jpg",
+  },
 ];
 
 export const paragraphs = [
@@ -246,6 +309,82 @@ export const blogs2 = [
     image: "https://www.imagetotext.info/storage/2024/Nov/Featureimage_59.png",
     heading: "How to Convert JPG to a Word Document Online?",
     date: "Nov 29, 2024",
+  },
+];
+
+export const blogs3 = [
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/WhatisaQRCodeandHowtoScanItmin_16.png",
+    heading: "What is a QR Code and How to Scan It?",
+    date: "Nov 14, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/WhatisOCROpticalCharacterRecognition_13.png",
+    heading: "What is OCR? (Optical Character Recognition)",
+    date: "Nov 12, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/WhatisOCROpticalCharacterRecognition_13.png",
+    heading: "What is a PDF? (Portable Document Format)",
+    date: "Nov 08, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/BusinessneedOCR_65.png",
+    heading: "Why Your Business Needs OCR Technology?",
+    date: "Nov 01, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Oct/DataExtractioninTechIndustry_30.png",
+    heading: "The Role of Data Extraction in the Tech Industry",
+    date: "Oct 01, 2024",
+  },
+  {
+    image: "https://www.imagetotext.info/storage/2024/Nov/whatisPDF_73.png",
+    heading: "What is a PDF?",
+    date: "Nov 08, 2024",
+  },
+];
+
+export const blogs4 = [
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/Featureimage_59.png",
+    heading: "How to Convert JPG to a Word Document Online?",
+    date: "Nov 29, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/WhatisOCROpticalCharacterRecognition_13.png",
+    heading: "What is OCR? (Optical Character Recognition)",
+    date: "Nov 12, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/WhatisaQRCodeandHowtoScanItmin_16.png",
+    heading: "What is a QR Code and How to Scan It?",
+    date: "Nov 14, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Nov/BusinessneedOCR_65.png",
+    heading: "Why Your Business Needs OCR Technology?",
+    date: "Nov 01, 2024",
+  },
+  {
+    image:
+      "https://www.imagetotext.info/storage/2024/Oct/DataExtractioninTechIndustry_30.png",
+    heading: "The Role of Data Extraction in the Tech Industry",
+    date: "Oct 01, 2024",
+  },
+  {
+    image: "https://www.imagetotext.info/storage/2024/Nov/whatisPDF_73.png",
+    heading: "What is a PDF?",
+    date: "Nov 08, 2024",
   },
 ];
 
@@ -581,6 +720,129 @@ export const faqData2 = [
   },
 ];
 
+export const faqData3 = [
+  {
+    question: "How to convert PDF to Text?",
+    answer: (
+      <>
+        To convert PDF to text free online, simply follow the below easy steps:{" "}
+        <li>Drag and Drop a file from the system.</li>
+        <li>Or, upload or paste the PDF file in the input box.</li>
+        <li>Verify the reCAPTCHA..</li>
+        <li>
+          Click the <span className="font-bold">Convert</span> button.
+        </li>
+      </>
+    ),
+  },
+  {
+    question: "How to copy text from PDF?",
+    answer: (
+      <>
+        Did you ever wonder how to copy simple text from PDF documents?{" "}
+        <p>
+          We have the best solution for you. Our free PDF to text converter
+          allows you to copy text from PDF with a single click.
+        </p>
+        <p>
+          It converts PDF to OCR and allows you to copy the result text in
+          real-time.
+        </p>
+        <p>
+          Furthermore, if you are wondering how to convert and copy any text
+          from an image, then use our Image to text converter.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What is the best PDF to Text converter?",
+    answer: (
+      <>
+        Our online PDF to Text converter is one of the best tools that works on
+        advanced OCR technology to help users convert multiple PDF files to
+        text.
+      </>
+    ),
+  },
+  {
+    question: "Can a PDF be converted to text?",
+    answer: (
+      <>
+        Yes, with the help of our PDF to Text converter, a PDF file can
+        effortlessly be converted to text.
+      </>
+    ),
+  },
+  {
+    question: "How can I turn a PDF to text?",
+    answer: (
+      <>
+        To turn your PDF file to text submit or upload it into our PDF file to
+        Text Converter online tool and press the{" "}
+        <span className="font-bold">“Convert”</span> button to start conversion.
+        Our tool will automatically turn your PDF into excitable and shareable
+        text.
+      </>
+    ),
+  },
+  {
+    question: "Is it safe to use a PDF to text converter?",
+    answer: (
+      <>
+        Yes, our PDF to text converter is 100% safe and secure. So, you can use
+        our tool with full trust and confidence.
+      </>
+    ),
+  },
+];
+
+export const faqData4 = [
+  {
+    question: "Which PDF to Word converter is best?",
+    answer: (
+      <>
+        TOur online PDF to Word Docx converter is one of the best tools that can
+        help you quickly and effortlessly convert PDF files into Word documents.
+      </>
+    ),
+  },
+  {
+    question: "How to change PDF files to Word free?",
+    answer: (
+      <>
+        To change your PDF file to Word for free, upload it into our PDF to Word
+        converter, and click the <span className="font-bold">“Convert”</span>{" "}
+        button. Our tool will instantly do the conversion process and provide
+        you with a downloadable Word file in the output.
+      </>
+    ),
+  },
+  {
+    question: "How does a PDF to Word converter work?",
+    answer: (
+      <>
+        The{" "}
+        <Link to="/" className="text-blue-700">
+          PDF files to Word converter uses advanced OCR technology
+        </Link>{" "}
+        to analyze the content of a PDF file like; text, formatting, and images,
+        and then recreate that content in the Word document.
+      </>
+    ),
+  },
+  {
+    question: "What is the purpose of PDF to Word Converter?",
+    answer: (
+      <>
+        The purpose of PDF to Word converter is to transform your PDF files into
+        editable Microsoft Word docx files. This conversion is important to
+        update or repurpose PDF content.
+      </>
+    ),
+  }
+];
+
 export const registerFormControls = [
   {
     name: "userName",
@@ -621,3 +883,4 @@ export const loginFormControls = [
     type: "password",
   },
 ];
+

@@ -148,11 +148,12 @@ const Wrapper = () => {
 
   return (
     <section className="bg-gray-100 py-5 px-4">
-      <h1 className="text-center text-4xl font-bold mt-2">
-        Image to Text Converter
-      </h1>
+      <h1 className="text-center text-4xl font-bold mt-2">Image Translator</h1>
       <p className="font-medium text-lg text-gray-700 mt-2 text-center">
-        An online image to text converter to extract text from images.
+        An online photo translator tool to translate image text directly. Upload
+        your photo
+        <br /> to our image translator and instantly get your image with
+        translated text.
       </p>
 
       <div className="container mx-auto px-4 flex flex-col items-center justify-center mt-4">
@@ -204,12 +205,6 @@ const Wrapper = () => {
                               }
                             }}
                           />
-                          <button
-                            onClick={() => setShowLinkInput((prev) => !prev)}
-                            className="flex items-center justify-center px-2 py-3 hover:bg-gray-200 border border-gray-300 rounded-md"
-                          >
-                            <img src={link} alt="Link" className="w-5 h-5" />
-                          </button>
                         </div>
                         {showLinkInput && (
                           <div className="flex items-center w-1/6">

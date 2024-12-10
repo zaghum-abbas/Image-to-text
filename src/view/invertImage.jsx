@@ -1,20 +1,22 @@
-import Wrapper from '@/components/wrapper/wrapper4';
-import { blogs4, cards3, faqData4 } from '@/data/data';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Wrapper from "@/components/wrapper/wrapper8";
+import { cards2, blogs2, faqData2 } from "../data/data";
+import { Link } from "react-router-dom";
 
-const pdfToWordConverter = () => {
+const invertImage = () => {
   return (
     <>
-      <Wrapper/>
-      
+      <Wrapper />
+
       <section className="py-10 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-            {cards3.map((card, index) => (
+            {cards2.map((card, index) => (
               <Link key={index} to={card.to}>
-                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center 
-                transition-transform duration-200 hover:scale-105 hover:border hover:border-gray-500">
+                <div
+                  className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center 
+              transition-transform duration-200 hover:scale-105 hover:border hover:border-gray-500"
+                >
                   <img
                     src={card.image}
                     alt={card.name}
@@ -33,17 +35,15 @@ const pdfToWordConverter = () => {
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center pb-4">
-            <h1 className="text-3xl font-bold">
-              Frequently Asked Questions (FAQs)
-            </h1>
+            <h1 className="text-3xl font-bold">Invert Image Converter</h1>
           </div>
           <div>
-            {faqData4.map((item, index) => (
+            {faqData2.map((item, index) => (
               <div
                 key={index}
                 className="mb-6 p-6 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)] rounded-lg"
               >
-                <h2 className="text-xl font-semibold text-dark-blue-700">
+                <h2 className="text-2xl font-semibold text-dark-blue-700">
                   {item.question}
                 </h2>
                 <p className="text-lg font-semibold leading-relaxed text-gray-800 mt-2">
@@ -59,7 +59,7 @@ const pdfToWordConverter = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6">Related Blogs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
-            {blogs4.map((blog, index) => (
+            {blogs2.map((blog, index) => (
               <div
                 key={index}
                 className="border rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
@@ -85,7 +85,7 @@ const pdfToWordConverter = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default pdfToWordConverter;
+export default invertImage;

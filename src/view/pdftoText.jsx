@@ -1,102 +1,95 @@
-import React, { useState } from "react";
-import { saveAs } from "file-saver";
-import * as pdfjs from "pdfjs-dist/build/pdf";
+import React from 'react';
+import Wrapper from "../components/wrapper/wrapper3";
+import {
+  blogs3,
+  cards3,
+  faqData3,
+} from "../data/data";
+import { Link } from "react-router-dom";
 
-// Set workerSrc to use the CDN-hosted worker script
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
-const PdfTextExtractor = () => {
-  const [pdfFile, setPdfFile] = useState(null); // Store the uploaded PDF file
-  const [pdfText, setPdfText] = useState("");  // Store extracted text
-  const [loading, setLoading] = useState(false); // Loading state for extraction
-
-  const extractTextFromPDF = async () => {
-    if (!pdfFile) return; // Ensure there's a file before extraction
-
-    try {
-      setLoading(true);
-      const arrayBuffer = await pdfFile.arrayBuffer();
-      const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
-
-      let extractedText = "";
-
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const textContent = await page.getTextContent();
-        const pageText = textContent.items.map((item) => item.str).join(" ");
-        extractedText += pageText + "\n";
-      }
-
-      setPdfText(extractedText);
-    } catch (error) {
-      console.error("Error extracting text: ", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    setPdfFile(file);
-    setPdfText(""); // Reset extracted text on new file upload
-  };
-
-  const handleDownloadText = () => {
-    const blob = new Blob([pdfText], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "extracted-text.txt");
-  };
-
+const pdftoText = () => {
   return (
-    <div className="flex flex-col items-center p-6 space-y-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-700">PDF Text Extractor</h1>
+    <>
+      <Wrapper/>
 
-      {/* File Upload */}
-      <label
-        htmlFor="file-upload"
-        className="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-      >
-        Select PDF File
-      </label>
-      <input
-        id="file-upload"
-        type="file"
-        accept="application/pdf"
-        className="hidden"
-        onChange={handleFileUpload}
-      />
+      <section className="py-10 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+            {cards3.map((card, index) => (
+              <Link key={index} to={card.to}>
+                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center 
+                transition-transform duration-200 hover:scale-105 hover:border hover:border-gray-500">
+                  <img
+                    src={card.image}
+                    alt={card.name}
+                    className="w-12 h-12 mb-4"
+                  />
+                  <h3 className="text-lg font-medium text-gray-800">
+                    {card.name}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Convert Button */}
-      <button
-        onClick={extractTextFromPDF}
-        className={`bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 ${
-          !pdfFile && "opacity-50 cursor-not-allowed"
-        }`}
-        disabled={!pdfFile || loading}
-      >
-        {loading ? "Converting..." : "Convert"}
-      </button>
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center pb-4">
+            <h1 className="text-3xl font-bold">
+              Frequently Asked Questions (FAQs)
+            </h1>
+          </div>
+          <div>
+            {faqData3.map((item, index) => (
+              <div
+                key={index}
+                className="mb-6 p-6 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)] rounded-lg"
+              >
+                <h2 className="text-xl font-semibold text-dark-blue-700">
+                  {item.question}
+                </h2>
+                <p className="text-lg font-semibold leading-relaxed text-gray-800 mt-2">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Extracted Text Display */}
-      {pdfText && (
-        <textarea
-          className="w-full h-60 p-4 bg-white border border-gray-300 rounded"
-          value={pdfText}
-          readOnly
-        />
-      )}
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6">Related Blogs</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            {blogs3.map((blog, index) => (
+              <div
+                key={index}
+                className="border rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <Link to={"/"}>
+                  <img
+                    src={blog.image}
+                    alt={blog.heading}
+                    className="w-full h-auto object-cover rounded-t-lg"
+                  />
+                </Link>
+                <div className="p-4">
+                  <Link to={"/"}>
+                    <h3 className="text-lg font-bold mb-2">{blog.heading}</h3>
+                  </Link>
+                  <p className="text-gray-800 font-medium text-base">
+                    {blog.date}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
 
-      {/* Download Button */}
-      <button
-        onClick={handleDownloadText}
-        className={`bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 ${
-          !pdfText && "opacity-50 cursor-not-allowed"
-        }`}
-        disabled={!pdfText}
-      >
-        Download Text
-      </button>
-    </div>
-  );
-};
-
-export default PdfTextExtractor;
+export default pdftoText;

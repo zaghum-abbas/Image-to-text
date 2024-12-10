@@ -1,122 +1,91 @@
-import React, { useState } from "react";
-import { jsPDF } from "jspdf";
+import React from 'react';
+import Wrapper from "@/components/wrapper/wrapper10";
+import { cards2, blogs2, faqData2 } from "../data/data";
+import { Link } from "react-router-dom";
 
-const ImageToPdf = () => {
-  const [image, setImage] = useState(null);
-  const [pdfBlob, setPdfBlob] = useState(null);
-  const [isConverting, setIsConverting] = useState(false);
-
-  // Handle image selection
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setImage(event.target.result); // Base64 URL of the image
-        setPdfBlob(null); // Reset the PDF blob when a new image is uploaded
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  // Convert image to PDF
-  const convertToPdf = () => {
-    if (!image) {
-      alert("Please upload an image first.");
-      return;
-    }
-
-    setIsConverting(true);
-
-    setTimeout(() => {
-      const pdf = new jsPDF("p", "mm", "a4");
-      pdf.addImage(image, "JPEG", 10, 10, 190, 0); // Fit the image to A4 width
-      const pdfBlob = pdf.output("blob");
-      setPdfBlob(pdfBlob);
-      setIsConverting(false);
-    }, 1000); // Simulate conversion delay for the animation
-  };
-
-  // Download the PDF
-  const downloadPdf = () => {
-    if (pdfBlob) {
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(pdfBlob);
-      link.download = "image.pdf";
-      link.click();
-    }
-  };
-
+const imageToPdf = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-4">Image to PDF</h1>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-        />
-        {image && (
-          <div className="mt-4">
-            <img
-              src={image}
-              alt="Preview"
-              className="w-full h-48 object-contain border rounded-lg"
-            />
-          </div>
-        )}
-        <div className="mt-6 flex flex-col gap-4">
-          {/* Convert Button */}
-          <button
-            onClick={convertToPdf}
-            disabled={isConverting}
-            className={`px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition ${
-              isConverting ? "cursor-not-allowed bg-blue-300" : ""
-            }`}
-          >
-            {isConverting ? (
-              <div className="flex items-center justify-center">
-                <svg
-                  className="animate-spin h-5 w-5 mr-2 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  ></path>
-                </svg>
-                Converting...
-              </div>
-            ) : (
-              "Convert"
-            )}
-          </button>
+    <>
+    <Wrapper/>
 
-          {/* Download Button */}
-          {pdfBlob && (
-            <button
-              onClick={downloadPdf}
-              className="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
-            >
-              Download PDF
-            </button>
-          )}
+    <section className="py-10 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+          {cards2.map((card, index) => (
+            <Link key={index} to={card.to}>
+              <div
+                className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center 
+              transition-transform duration-200 hover:scale-105 hover:border hover:border-gray-500"
+              >
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  className="w-12 h-12 mb-4"
+                />
+                <h3 className="text-lg font-medium text-gray-800">
+                  {card.name}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
 
-export default ImageToPdf;
+    <section className="py-10 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center pb-4">
+          <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
+        </div>
+        <div>
+          {faqData2.map((item, index) => (
+            <div
+              key={index}
+              className="mb-6 p-6 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)] rounded-lg"
+            >
+              <h2 className="text-2xl font-semibold text-dark-blue-700">
+                {item.question}
+              </h2>
+              <p className="text-lg font-semibold leading-relaxed text-gray-800 mt-2">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-10 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-6">Related Blogs</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          {blogs2.map((blog, index) => (
+            <div
+              key={index}
+              className="border rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <Link to={"/"}>
+                <img
+                  src={blog.image}
+                  alt={blog.heading}
+                  className="w-full h-auto object-cover rounded-t-lg"
+                />
+              </Link>
+              <div className="p-4">
+                <Link to={"/"}>
+                  <h3 className="text-lg font-bold mb-2">{blog.heading}</h3>
+                </Link>
+                <p className="text-gray-800 font-medium text-base">
+                  {blog.date}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </>
+  )
+}
+
+export default imageToPdf;

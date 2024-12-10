@@ -5,7 +5,7 @@ import Footer from "./components/shared/footer";
 import LoginForm from "./components/auth/loginForm";
 import RegisterForm from "./components/auth/registerForm";
 import Profile from "./view/profile";
-import CheckAuth from "./components/common/checkAuth";
+// import CheckAuth from "./components/common/checkAuth";
 import ImageToText from "./view/imagetoText";
 import JpgToWord from "./view/jpgtoWord";
 import PDFToTextConverter from './view/pdftoText';
@@ -13,18 +13,24 @@ import PDFToWordConverter from './view/pdfToWordConverter';
 import ImageTranslator from './view/imageTranslator';
 import ImageToPdf from './view/imageToPdf';
 import WordToPdf from './view/wordToPdf';
+import TextToPdf from './view/textToPdf';
+import TextToWord from './view/textToWord';
+import InvertImage from './view/invertImage';
+import QrScanner from './view/qrCodeScanner';
+import PdfToJpg from './view/pdfToJpg';
+import TextToImage from './view/textToImages';
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsAuthenticated(!!token);
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("authToken");
+  //   setIsAuthenticated(!!token);
+  // }, []);
 
   return (
     <>
-      <CheckAuth isAuthenticated={isAuthenticated}>
+      {/* <CheckAuth isAuthenticated={isAuthenticated}> */}
         <Navbar />
         <Routes>
           <Route path="/" element={<ImageToText />} />
@@ -34,12 +40,18 @@ const App = () => {
           <Route path="/image-translator" element={<ImageTranslator/>} />
           <Route path="/image-to-pdf" element={<ImageToPdf/>} />
           <Route path="/word-to-pdf" element={<WordToPdf/>} />
+          <Route path="/text-to-pdf" element={<TextToPdf/>} />
+          <Route path="/text-to-word" element={<TextToWord/>} />
+          <Route path="/invert-image" element={<InvertImage/>} />
+          <Route path="/qr-code-scanner" element={<QrScanner/>} />
+          <Route path="/pdf-to-jpg" element={<PdfToJpg/>} />
+          <Route path="/text-to-image" element={<TextToImage/>} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
-      </CheckAuth>
+      {/* </CheckAuth> */}
     </>
   );
 };
