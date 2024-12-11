@@ -1,143 +1,91 @@
-import React, { useState } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import QrScanner from 'qr-scanner';
+import React from 'react';
+import Wrapper from "@/components/wrapper/wrapper11";
+import { cards2, blogs2, faqData2 } from "../data/data";
+import { Link } from "react-router-dom";
 
-const QrCodeGenerator = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [qrCode, setQrCode] = useState('');
-  const [isGenerated, setIsGenerated] = useState(false);
-
-  const handleGenerate = () => {
-    const trimmedInput = inputValue.trim();
-
-    if (!trimmedInput) {
-      toast.error('Input cannot be empty! Please enter some text or a URL.', {
-        position: 'bottom-right',
-        autoClose: 3000,
-      });
-      return;
-    }
-
-    setQrCode(trimmedInput); // Accept any non-empty input
-    setIsGenerated(true);
-  };
-
-  const handleDownload = () => {
-    if (!qrCode) return;
-
-    const canvas = document.querySelector('canvas');
-    const image = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.href = image;
-    link.download = 'qrcode.png';
-    link.click();
-  };
-
-  const handleClear = () => {
-    setInputValue('');
-    setQrCode('');
-    setIsGenerated(false);
-  };
-
-  const handleUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      const image = new Image();
-      image.src = event.target.result;
-      image.onload = async () => {
-        try {
-          const result = await QrScanner.scanImage(image);
-          setInputValue(result);
-          toast.success('QR code decoded successfully!', {
-            position: 'bottom-right',
-            autoClose: 3000,
-          });
-        } catch (error) {
-          toast.error('Invalid QR code image!', {
-            position: 'bottom-right',
-            autoClose: 3000,
-          });
-        }
-      };
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(inputValue);
-    toast.success('Copied to clipboard!', {
-      position: 'bottom-right',
-      autoClose: 2000,
-    });
-  };
-
+const qrCodeScanner = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <ToastContainer />
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">QR Code Generator</h1>
-      <div className="w-full max-w-md bg-white p-6 shadow rounded-lg">
-        <input
-          type="text"
-          placeholder="Enter URL or text..."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className="w-full border border-gray-300 rounded-lg p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <div className="flex justify-between mb-4">
-          <button
-            onClick={handleGenerate}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-          >
-            Generate
-          </button>
-          <button
-            onClick={handleDownload}
-            className={`${
-              isGenerated ? 'bg-green-500' : 'bg-gray-300'
-            } text-white px-4 py-2 rounded hover:bg-green-600 transition`}
-            disabled={!isGenerated}
-          >
-            Download
-          </button>
-          <button
-            onClick={handleClear}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
-          >
-            Clear All
-          </button>
-        </div>
-        <div className="flex items-center mb-4">
-          <label className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition cursor-pointer">
-            Upload
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleUpload}
-              className="hidden"
-            />
-          </label>
-          {inputValue && (
-            <button
-              onClick={handleCopy}
-              className="ml-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition"
-            >
-              Copy
-            </button>
-          )}
-        </div>
-        {qrCode && (
-          <div className="flex justify-center">
-            <QRCodeCanvas value={qrCode} size={200} />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+    <>
+      <Wrapper/>
 
-export default QrCodeGenerator;
+      <section className="py-10 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+            {cards2.map((card, index) => (
+              <Link key={index} to={card.to}>
+                <div
+                  className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center 
+                transition-transform duration-200 hover:scale-105 hover:border hover:border-gray-500"
+                >
+                  <img
+                    src={card.image}
+                    alt={card.name}
+                    className="w-12 h-12 mb-4"
+                  />
+                  <h3 className="text-lg font-medium text-gray-800">
+                    {card.name}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center pb-4">
+            <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
+          </div>
+          <div>
+            {faqData2.map((item, index) => (
+              <div
+                key={index}
+                className="mb-6 p-6 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)] rounded-lg"
+              >
+                <h2 className="text-2xl font-semibold text-dark-blue-700">
+                  {item.question}
+                </h2>
+                <p className="text-lg font-semibold leading-relaxed text-gray-800 mt-2">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6">Related Blogs</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            {blogs2.map((blog, index) => (
+              <div
+                key={index}
+                className="border rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <Link to={"/"}>
+                  <img
+                    src={blog.image}
+                    alt={blog.heading}
+                    className="w-full h-auto object-cover rounded-t-lg"
+                  />
+                </Link>
+                <div className="p-4">
+                  <Link to={"/"}>
+                    <h3 className="text-lg font-bold mb-2">{blog.heading}</h3>
+                  </Link>
+                  <p className="text-gray-800 font-medium text-base">
+                    {blog.date}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default qrCodeScanner;
