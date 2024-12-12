@@ -9,7 +9,7 @@ import Profile from "./view/profile";
 import ImageToText from "./view/imagetoText";
 import JpgToWord from "./view/jpgtoWord";
 import PDFToTextConverter from './view/pdftoText';
-import PDFToWordConverter from './view/pdfToWordConverter';
+import PDFToWord from './view/pdfToWord';
 import ImageTranslator from './view/imageTranslator';
 import ImageToPdf from './view/imageToPdf';
 import WordToPdf from './view/wordToPdf';
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/" element={<ImageToText />} />
           <Route path="/jpg-to-word" element={<JpgToWord />} />
           <Route path="/pdf-to-text" element={<PDFToTextConverter/>} />
-          <Route path="/pdf-to-word" element={<PDFToWordConverter/>} />
+          <Route path="/pdf-to-word" element={<PDFToWord/>} />
           <Route path="/image-translator" element={<ImageTranslator/>} />
           <Route path="/image-to-pdf" element={<ImageToPdf/>} />
           <Route path="/word-to-pdf" element={<WordToPdf/>} />

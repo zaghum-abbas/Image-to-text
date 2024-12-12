@@ -1,30 +1,32 @@
-import React from "react";
-import Wrapper from "@/components/wrapper/wrapper13";
-import { faqData2 } from "../data/data";
+import Wrapper from '@/components/wrapper/wrapper4';
+import { faqData4 } from '@/data/data';
+import React from 'react';
 import CardGrid from '../components/shared/cards';
-import { cards13 } from "@/data/cardsData/cardsData";
-import {blogs13} from '@/data/blogsData/blogsData';
+import { cards4 } from '@/data/cardsData/cardsData';
+import {blogs4} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const pdfToJpg = () => {
+const pdfToWordConverter = () => {
   return (
     <>
-      <Wrapper />
-
-      <CardGrid cards={cards13} />
+      <Wrapper/>
+      
+      <CardGrid cards={cards4} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center pb-4">
-            <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
+            <h1 className="text-3xl font-bold">
+              Frequently Asked Questions (FAQs)
+            </h1>
           </div>
           <div>
-            {faqData2.map((item, index) => (
+            {faqData4.map((item, index) => (
               <div
                 key={index}
                 className="mb-6 p-6 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)] rounded-lg"
               >
-                <h2 className="text-2xl font-semibold text-dark-blue-700">
+                <h2 className="text-xl font-semibold text-dark-blue-700">
                   {item.question}
                 </h2>
                 <p className="text-lg font-semibold leading-relaxed text-gray-800 mt-2">
@@ -36,9 +38,9 @@ const pdfToJpg = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs13}/>
+      <BlogsCards blogs={blogs4}/>
     </>
-  );
-};
+  )
+}
 
-export default pdfToJpg;
+export default pdfToWordConverter;

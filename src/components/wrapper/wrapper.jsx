@@ -204,12 +204,12 @@ const Wrapper = () => {
                               }
                             }}
                           />
-                          <button
+                          {/* <button
                             onClick={() => setShowLinkInput((prev) => !prev)}
                             className="flex items-center justify-center px-2 py-3 hover:bg-gray-200 border border-gray-300 rounded-md"
                           >
                             <img src={link} alt="Link" className="w-5 h-5" />
-                          </button>
+                          </button> */}
                         </div>
                         {showLinkInput && (
                           <div className="flex items-center w-1/6">
@@ -238,7 +238,7 @@ const Wrapper = () => {
                         <img
                           src={imageUrl}
                           alt="Uploaded"
-                          className="w-1/4 h-auto border border-gray-300 rounded-md"
+                          className="w-32 h-auto border border-gray-300 rounded-md"
                         />
                       )}
                       <div className="flex items-center gap-4 flex-col">
@@ -269,7 +269,7 @@ const Wrapper = () => {
                           <img
                             src={imageUrl}
                             alt="Uploaded"
-                            className="w-[200px] h-auto border border-gray-300 rounded-md"
+                            className="w-32 h-auto border border-gray-300 rounded-md"
                           />
                         )}
                       </div>
@@ -291,6 +291,12 @@ const Wrapper = () => {
                           >
                             Download as File
                           </button>
+                          <button
+                          onClick={clearAll}
+                          className="px-4 py-2 bg-destructive text-white rounded-md"
+                        >
+                          Clear All
+                        </button>
                         </div>
                       </div>
                     </div>

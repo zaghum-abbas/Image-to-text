@@ -1,6 +1,6 @@
 import CommonForm from "@/components/common/form";
 import { useToast } from "@/components/ui/use-toast";
-import { loginFormControls } from "../../data/data";
+import { loginFormControls } from "../../data/authData/authData";
 import { useEffect, useState } from "react";
 import { loginUser } from "../../store/auth-slice";
 import { useDispatch } from "react-redux";
