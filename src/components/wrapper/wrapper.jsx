@@ -36,13 +36,13 @@ const Wrapper = () => {
 
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imageData.data;
-        // for (let i = 0; i < data.length; i += 4) {
-        //   const grayscale =
-        //     data[i] * 0.3 + data[i + 1] * 0.59 + data[i + 2] * 0.11;
-        //   data[i] = grayscale;
-        //   data[i + 1] = grayscale;
-        //   data[i + 2] = grayscale;
-        // }
+        for (let i = 0; i < data.length; i += 4) {
+          const grayscale =
+            data[i] * 0.3 + data[i + 1] * 0.59 + data[i + 2] * 0.11;
+          data[i] = grayscale;
+          data[i + 1] = grayscale;
+          data[i + 2] = grayscale;
+        }
         ctx.putImageData(imageData, 0, 0);
         const threshold = 128;
         const binarizedImage = ctx.getImageData(
@@ -51,13 +51,13 @@ const Wrapper = () => {
           canvas.width,
           canvas.height
         );
-        // const binarizedData = binarizedImage.data;
-        // for (let i = 0; i < binarizedData.length; i += 4) {
-        //   const value = binarizedData[i] > threshold ? 255 : 0;
-        //   binarizedData[i] = value;
-        //   binarizedData[i + 1] = value;
-        //   binarizedData[i + 2] = value;
-        // }
+        const binarizedData = binarizedImage.data;
+        for (let i = 0; i < binarizedData.length; i += 4) {
+          const value = binarizedData[i] > threshold ? 255 : 0;
+          binarizedData[i] = value;
+          binarizedData[i + 1] = value;
+          binarizedData[i + 2] = value;
+        }
         ctx.putImageData(binarizedImage, 0, 0);
         resolve(canvas.toDataURL());
       };

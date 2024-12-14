@@ -1,17 +1,17 @@
-import React from 'react';
-import Wrapper from "@/components/wrapper/wrapper11";
-import { faqData2 } from "../data/data";
-import CardGrid from '../components/shared/cards';
-import { cards11 } from '@/data/cardsData/cardsData';
-import {blogs11} from '@/data/blogsData/blogsData';
+import React from "react";
+import Wrapper from "@/components/wrapper/wrapper13";
+import { faqData2 } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
+import { cards13 } from "@/data/cardsData/cardsData";
+import {blogs13} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const qrCodeScanner = () => {
+const pdfToJpg = () => {
   return (
     <>
-      <Wrapper/>
+      <Wrapper />
 
-      <CardGrid cards={cards11} />
+      <CardGrid cards={cards13} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
@@ -36,9 +36,9 @@ const qrCodeScanner = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs11}/>
+      <BlogsCards blogs={blogs13}/>
     </>
-  )
-}
+  );
+};
 
-export default qrCodeScanner;
+export default pdfToJpg;

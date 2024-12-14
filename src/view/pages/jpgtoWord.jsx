@@ -1,17 +1,17 @@
-import React from 'react';
-import Wrapper from "@/components/wrapper/wrapper9";
-import { faqData2 } from "../data/data";
-import CardGrid from '../components/shared/cards';
-import { cards8 } from '@/data/cardsData/cardsData';
-import {blogs8} from '@/data/blogsData/blogsData';
+import React from "react";
+import Wrapper from "@/components/wrapper/wrapper2";
+import { faqData2 } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
+import { cards2 } from "@/data/cardsData/cardsData";
+import {blogs2} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const textToImages = () => {
+const jpgtoWord = () => {
   return (
     <>
       <Wrapper/>
 
-      <CardGrid cards={cards8} />
+      <CardGrid cards={cards2} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
@@ -36,9 +36,9 @@ const textToImages = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs8}/>
+      <BlogsCards blogs={blogs2}/>
     </>
-  )
-}
+  );
+};
 
-export default textToImages;
+export default jpgtoWord;

@@ -1,4 +1,4 @@
-import CommonForm from "@/components/common/form";
+import CommonForm from "@/view/common/form";
 import { useToast } from "@/components/ui/use-toast";
 import { loginFormControls } from "../../data/authData/authData";
 import { useEffect, useState } from "react";
@@ -6,7 +6,7 @@ import { loginUser } from "../../store/auth-slice";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../../public/assets/logo/google-logo.png";
-import DividerWithText from "../shared/dividerText";
+import DividerWithText from "../../components/shared/dividerText";
 import { LogIn } from "lucide-react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebaseConfig";

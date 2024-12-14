@@ -1,22 +1,22 @@
-import React from 'react';
-import Wrapper from "../components/wrapper/wrapper6";
-import { faqData2 } from "../data/data";
-import CardGrid from '../components/shared/cards';
-import { cards10 } from '@/data/cardsData/cardsData';
-import {blogs10} from '@/data/blogsData/blogsData';
+import React from "react";
+import Wrapper from "@/components/wrapper/wrapper8";
+import { faqData2 } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
+import { cards7 } from "@/data/cardsData/cardsData";
+import {blogs7} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const imageTranslator = () => {
+const invertImage = () => {
   return (
     <>
-      <Wrapper/>
+      <Wrapper />
 
-      <CardGrid cards={cards10} />
+      <CardGrid cards={cards7} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center pb-4">
-            <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
+            <h1 className="text-3xl font-bold">Invert Image Converter</h1>
           </div>
           <div>
             {faqData2.map((item, index) => (
@@ -36,9 +36,9 @@ const imageTranslator = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs10}/>
+      <BlogsCards blogs={blogs7}/>
     </>
-  )
-}
+  );
+};
 
-export default imageTranslator;
+export default invertImage;

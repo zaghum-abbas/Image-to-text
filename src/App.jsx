@@ -2,8 +2,9 @@ import React, { useEffect, useState, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/shared/navbar";
 import Footer from "./components/shared/footer";
-import CheckAuth from "./components/common/checkAuth";
+import CheckAuth from "./view/common/checkAuth";
 import routes from "./config/routes";
+import Loading from "@/components/shared/loading";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +18,7 @@ const App = () => {
     <>
       <CheckAuth isAuthenticated={isAuthenticated}>
         <Navbar />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading/>}>
           <Routes>
             {routes.map(({ path, component }, index) => {
               const LazyComponent = React.lazy(component);

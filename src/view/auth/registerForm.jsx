@@ -1,11 +1,11 @@
-import CommonForm from "@/components/common/form";
+import CommonForm from "@/view/common/form";
 import { useToast } from "@/hooks/use-toast";
 import { registerFormControls } from "../../data/authData/authData";
 import {registerUser} from "../../store/auth-slice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import DividerWithText from "../shared/dividerText";
+import DividerWithText from "../../components/shared/dividerText";
 import GoogleIcon from "../../../public/assets/logo/google-logo.png";
 import { UserRoundPlus } from "lucide-react";
 

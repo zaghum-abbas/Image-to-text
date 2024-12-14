@@ -1,22 +1,17 @@
 import React from "react";
-import Wrapper from "../components/wrapper/wrapper";
-import {
-  paragraphs,
-  questionsPara,
-  cardsDetails,
-  ourDetails,
-  applications,
-  faqData,
-} from "../data/data";
-import CardGrid from '../components/shared/cards';
+import Wrapper from "../../components/wrapper/wrapper";
+import { paragraphs, questionsPara, cardsDetails, ourDetails, applications, faqData, } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
 import { cards } from "@/data/cardsData/cardsData";
 import {blogs} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
+import ImageToText from "@/components/wrapper/imageToText";
 
 const Home = () => {
   return (
     <>
       <Wrapper/>
+      {/* <ImageToText/> */}
 
       <CardGrid cards={cards} />
 

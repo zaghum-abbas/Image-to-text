@@ -1,7 +1,7 @@
 import React from "react";
-import { faqData2 } from "../data/data";
+import { faqData2 } from "../../data/data";
 import Wrapper from "@/components/wrapper/wrapper7";
-import CardGrid from '../components/shared/cards';
+import CardGrid from '../../components/shared/cards';
 import { cards6 } from "@/data/cardsData/cardsData";
 import {blogs6} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';

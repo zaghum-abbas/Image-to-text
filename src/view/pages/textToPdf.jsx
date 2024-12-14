@@ -1,22 +1,22 @@
-import React from "react";
-import Wrapper from "@/components/wrapper/wrapper12";
-import { faqData2 } from "../data/data";
-import CardGrid from '../components/shared/cards';
-import { cards12 } from "@/data/cardsData/cardsData";
-import {blogs12} from '@/data/blogsData/blogsData';
+import React from 'react';
+import Wrapper from '@/components/wrapper/wrapper5';
+import { faqData2 } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
+import { cards5 } from '@/data/cardsData/cardsData';
+import {blogs5} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const wordToPdf = () => {
+const textToPdf = () => {
   return (
     <>
-      <Wrapper />
+      <Wrapper/>
 
-      <CardGrid cards={cards12} />
+      <CardGrid cards={cards5} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center pb-4">
-            <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
+            <h1 className="text-3xl font-bold">Frequently Asked Questions (FAQs)</h1>
           </div>
           <div>
             {faqData2.map((item, index) => (
@@ -36,9 +36,9 @@ const wordToPdf = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs12}/>
+      <BlogsCards blogs={blogs5}/>
     </>
-  );
-};
+  )
+}
 
-export default wordToPdf;
+export default textToPdf;

@@ -1,22 +1,22 @@
 import React from 'react';
-import Wrapper from '@/components/wrapper/wrapper5';
-import { faqData2 } from "../data/data";
-import CardGrid from '../components/shared/cards';
-import { cards5 } from '@/data/cardsData/cardsData';
-import {blogs5} from '@/data/blogsData/blogsData';
+import Wrapper from "@/components/wrapper/wrapper11";
+import { faqData2 } from "../../data/data";
+import CardGrid from '../../components/shared/cards';
+import { cards11 } from '@/data/cardsData/cardsData';
+import {blogs11} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
 
-const textToPdf = () => {
+const qrCodeScanner = () => {
   return (
     <>
       <Wrapper/>
 
-      <CardGrid cards={cards5} />
+      <CardGrid cards={cards11} />
 
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center pb-4">
-            <h1 className="text-3xl font-bold">Frequently Asked Questions (FAQs)</h1>
+            <h1 className="text-3xl font-bold">JPG to Word Converter</h1>
           </div>
           <div>
             {faqData2.map((item, index) => (
@@ -36,9 +36,9 @@ const textToPdf = () => {
         </div>
       </section>
 
-      <BlogsCards blogs={blogs5}/>
+      <BlogsCards blogs={blogs11}/>
     </>
   )
 }
 
-export default textToPdf;
+export default qrCodeScanner;
