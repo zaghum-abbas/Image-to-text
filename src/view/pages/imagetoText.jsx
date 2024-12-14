@@ -1,11 +1,11 @@
 import React from "react";
-import Wrapper from "../../components/wrapper/wrapper";
+import Wrapper from "../../components/wrapper/imageToText";
 import { paragraphs, questionsPara, cardsDetails, ourDetails, applications, faqData, } from "../../data/data";
 import CardGrid from '../../components/shared/cards';
 import { cards } from "@/data/cardsData/cardsData";
 import {blogs} from '@/data/blogsData/blogsData';
 import BlogsCards from '@/components/shared/blogs';
-import ImageToText from "@/components/wrapper/imageToText";
+import ImageToText from "@/components/wrapper/testFile";
 
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from "@/components/wrapper/wrapper10";
+import Wrapper from "@/components/wrapper/imageToPdf";
 import {faqData2} from "../../data/data";
 import CardGrid from '../../components/shared/cards';
 import {cards9}  from '@/data/cardsData/cardsData';

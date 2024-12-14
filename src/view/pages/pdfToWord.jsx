@@ -1,4 +1,4 @@
-import Wrapper from '@/components/wrapper/wrapper4';
+import Wrapper from '@/components/wrapper/pdfToWord';
 import { faqData4 } from '@/data/data';
 import React from 'react';
 import CardGrid from '../../components/shared/cards';

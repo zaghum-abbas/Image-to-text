@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from "../../components/wrapper/wrapper3";
+import Wrapper from "../../components/wrapper/pdfToText";
 import { faqData3 } from "../../data/data";
 import CardGrid from '../../components/shared/cards';
 import { cards3 } from '@/data/cardsData/cardsData';

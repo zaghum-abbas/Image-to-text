@@ -1,6 +1,6 @@
 import React from "react";
 import { faqData2 } from "../../data/data";
-import Wrapper from "@/components/wrapper/wrapper7";
+import Wrapper from "@/components/wrapper/textToWord";
 import CardGrid from '../../components/shared/cards';
 import { cards6 } from "@/data/cardsData/cardsData";
 import {blogs6} from '@/data/blogsData/blogsData';
